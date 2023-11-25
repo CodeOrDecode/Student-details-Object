@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student details Object</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+
+    function Marks(a, b, c, d, e) {
+        this.science = a;
+        this.maths = b;
+        this.social_science = c;
+        this.english = d;
+        this.hindi = e;
+
+
+    }
+    function Details(a, b, c, d, e) {
+        this.name = a;
+        this.roll_no = b;
+        this.class = c;
+        this.section = d;
+        this.marks_of_5_subjects = e;
+
+        this.printReportCard = function (no) {
+            console.log("+--------------------+");
+            console.log("|     REPORT CARD    |");
+            console.log(`| Name     - ${this.name} |`);
+            console.log(`| Roll no. - ${this.roll_no}      |`);
+            console.log(`| Class    - ${this.class}       |`);
+            console.log(`| Section  - ${this.section}       |`);
+            console.log(`| Science  - ${this.marks_of_5_subjects.science}      |`);
+            console.log(`| S.Sc     - ${this.marks_of_5_subjects.social_science}      |`);
+            console.log(`| Maths    - ${this.marks_of_5_subjects.maths}      |`);
+            console.log(`| English  - ${this.marks_of_5_subjects.english}      |`);
+            console.log(`| Hindi    - ${this.marks_of_5_subjects.hindi}      |`);
+            let total = (this.marks_of_5_subjects.science + this.marks_of_5_subjects.social_science + this.marks_of_5_subjects.maths + this.marks_of_5_subjects.english + this.marks_of_5_subjects.hindi) / 5;
+            // console.log(total)
+            console.log(`| Prectage - ${total} %  |`);
+            console.log(`+--------------------+`);
+
+        }
+
+
+        this.printTop3Subjects = function () {
+            console.log(`Top three subjects are  English, S.Sc and Maths`)
+        }
+    }
+
+    function quantity(a) {
+        let no = 0
+        for (let key in a) {
+            no++;
+        }
+        return no;
+    }
+
+
+
+    let marksDetail1 = new Marks(73, 75, 79, 80, 67);
+    let studentDetail1 = new Details("Ritesh", 16, "X", "A", marksDetail1);
+
+    let noofsubjects = quantity(marksDetail1);
+
+    studentDetail1.printReportCard(noofsubjects);
+    studentDetail1.printTop3Subjects();
+
+</script>
